@@ -9,7 +9,7 @@ mybatis-plus:
 spring:
   profiles: dev #开发环境
   application:
-    name: microservice-product-config			#服务名
+    name: microservice-product-config-bus			#服务名
   datasource: # 数据源配置
     type: com.alibaba.druid.pool.DruidDataSource # 设置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动包
