@@ -4,31 +4,29 @@
 ---
 server:
   port: 8001
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml 
-  type-aliases-package: com.why.api.domain
-  mapper-locations: classpath:mybatis/mapper/**/*.xml
+mybatis-plus:
+  type-aliases-package: com.ruimin.domain # 指定实体类所在包
 spring:
   profiles: dev #开发环境
   application:
     name: microservice-product-config			#服务名
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springcloud_db01?serverTimezone=GMT%2B8 #数据库连接地址
+  datasource: # 数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource # 设置数据源类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动包
+    url: jdbc:mysql://127.0.0.1:3306/springcloud_db02?serverTimezone=GMT%2B8  # 数据库名称
     username: root
     password: root
     dbcp2:
-      min-idle: 5
-      initial-size: 5
-      max-total: 5
-      max-wait-millis: 150
+      min-idle: 5               # 数据库连接池的最小维持连接数
+      initial-size: 5           # 初始化连接数
+      max-total: 5              # 最大连接数
+      max-wait-millis: 150      # 等待连接获取的最大超时时间
 
 eureka:
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
       defaultZone: http://eureka6001.com:6001/eureka/
   instance:
     instanceId: ${spring.application.name}:${server.port}
@@ -36,31 +34,29 @@ eureka:
 ---
 server:
   port: 8001
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml 
-  type-aliases-package: com.why.api.domain
-  mapper-locations: classpath:mybatis/mapper/**/*.xml
+mybatis-plus:
+  type-aliases-package: com.ruimin.domain # 指定实体类所在包
 spring:
   profiles: prod #生产环境
   application:
     name: microservice-product-config			#服务名
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springcloud_db02?serverTimezone=GMT%2B8 #数据库连接地址
+  datasource: # 数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource # 设置数据源类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动包
+    url: jdbc:mysql://127.0.0.1:3306/springcloud_db02?serverTimezone=GMT%2B8  # 数据库名称
     username: root
     password: root
     dbcp2:
-      min-idle: 5
-      initial-size: 5
-      max-total: 5
-      max-wait-millis: 150
+      min-idle: 5               # 数据库连接池的最小维持连接数
+      initial-size: 5           # 初始化连接数
+      max-total: 5              # 最大连接数
+      max-wait-millis: 150      # 等待连接获取的最大超时时间
 
 eureka:
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
       defaultZone: http://eureka6001.com:6001/eureka/
   instance:
     instanceId: ${spring.application.name}:${server.port}
